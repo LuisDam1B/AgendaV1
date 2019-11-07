@@ -16,7 +16,15 @@
             android:id="@+id/viewA"
             android:layout_weight="0.6"
             android:background="@color/colorPrimaryDark"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imagenPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+
 
         </LinearLayout>
         <LinearLayout
