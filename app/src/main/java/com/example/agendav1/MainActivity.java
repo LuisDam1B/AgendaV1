@@ -11,15 +11,12 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+    final ArrayList<Persona> datos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        recyclerView = findViewById(R.id.recyclerView);
-
-        final ArrayList<Persona> datos = new ArrayList<>();
+        setContentView(R.layout.fragment_contactos);
 
         datos.add(new Persona("Adrian","Gonzalvez Jordan",665200454,"adriangonzalves@gamil.com"));
         datos.add(new Persona("Alberto","Garcia Belenger",665230454,"albertogarcia@gamil.com"));
@@ -31,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
         datos.add(new Persona("Cristiano","Ronaldo Lima",621334454,"cristianoronaldo@gamil.com"));
         datos.add(new Persona("Leo","Messi Sanz",609480454,"leomessi@gamil.com"));
 
-        Adaptador adaptador = new Adaptador(datos,this);
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(adaptador);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
     }
 }
