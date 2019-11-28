@@ -1,6 +1,9 @@
 package com.example.agendav1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
         datos.add(new Persona("Cristiano","Ronaldo Lima",621334454,"cristianoronaldo@gamil.com"));
         datos.add(new Persona("Leo","Messi Sanz",609480454,"leomessi@gamil.com"));
 
+        FragmentManager FM = getSupportFragmentManager();
+        FragmentTransaction FT = FM.beginTransaction();
+
+        Fragment fragment = new FragmentContactos(datos);
+        FT.add(R.id.fragment_Container_Contactos,fragment);
+        FT.commit();
 
     }
 }
