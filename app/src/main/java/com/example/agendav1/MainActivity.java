@@ -4,9 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
@@ -19,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_contactos);
+        setContentView(R.layout.activity_main);
 
         datos.add(new Persona("Adrian","Gonzalvez Jordan",665200454,"adriangonzalves@gamil.com"));
         datos.add(new Persona("Alberto","Garcia Belenger",665230454,"albertogarcia@gamil.com"));

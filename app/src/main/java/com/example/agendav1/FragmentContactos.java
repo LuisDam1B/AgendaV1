@@ -16,6 +16,7 @@ public class FragmentContactos extends Fragment {
 
     RecyclerView recyclerView;
     ArrayList<Persona> datos;
+    Adaptador adaptador;
 
     public FragmentContactos(ArrayList<Persona> datos) {
 
@@ -27,12 +28,12 @@ public class FragmentContactos extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_contactos,container,false);
 
-        Adaptador adaptador = new Adaptador(datos,getActivity());
+        adaptador = new Adaptador(datos,getActivity());
 
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView.setAdapter(adaptador);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
 
 
 
