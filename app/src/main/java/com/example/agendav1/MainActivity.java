@@ -6,12 +6,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.View;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     final ArrayList<Persona> datos = new ArrayList<>();
+    FloatingActionButton FAB_NuevoContacto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +32,29 @@ public class MainActivity extends AppCompatActivity {
         datos.add(new Persona("Cristiano","Ronaldo Lima",621334454,"cristianoronaldo@gamil.com"));
         datos.add(new Persona("Leo","Messi Sanz",609480454,"leomessi@gamil.com"));
 
-        FragmentManager FM = getSupportFragmentManager();
+        FragmentManager FM  = getSupportFragmentManager();
         FragmentTransaction FT = FM.beginTransaction();
 
         Fragment fragment = new FragmentContactos(datos);
         FT.add(R.id.fragment_Container_Contactos,fragment);
         FT.commit();
+
+        FAB_NuevoContacto = findViewById(R.id.FAB_NuevoContacto);
+
+        FAB_NuevoContacto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentManager FM  = getSupportFragmentManager();
+                FragmentTransaction FT = FM.beginTransaction();
+
+                Fragment fragmentContactoNuevo = new FragmetNuevoContacto();
+                FT.replace(R.id.fragment_Container_Contactos,fragmentContactoNuevo);
+                FT.addToBackStack(null);
+                FT.commit();
+
+            }
+        });
 
     }
 }
