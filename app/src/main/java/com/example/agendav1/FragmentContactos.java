@@ -49,8 +49,8 @@ public class FragmentContactos extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getContext(),"PRUEBA CLICK FAB",Toast.LENGTH_SHORT).show();
 
-                FragmentManager FM = getSu
-                FragmentTransaction FT = FM.beginTransaction();
+                //Pasamos los datos al mainActivity con la interface
+                //y cargamos ahi el fragment.
 
             }
         });

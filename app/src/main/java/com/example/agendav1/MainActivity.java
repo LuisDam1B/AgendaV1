@@ -39,22 +39,6 @@ public class MainActivity extends AppCompatActivity {
         FT.add(R.id.fragment_Container_Contactos,fragment);
         FT.commit();
 
-        FAB_NuevoContacto = findViewById(R.id.FAB_NuevoContacto);
-
-        FAB_NuevoContacto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                FragmentManager FM  = getSupportFragmentManager();
-                FragmentTransaction FT = FM.beginTransaction();
-
-                Fragment fragmentContactoNuevo = new FragmetNuevoContacto();
-                FT.replace(R.id.fragment_Container_Contactos,fragmentContactoNuevo);
-                FT.addToBackStack(null);
-                FT.commit();
-
-            }
-        });
 
     }
 }
