@@ -7,12 +7,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnFABClick{
 
     final ArrayList<Persona> datos = new ArrayList<>();
     FloatingActionButton FAB_NuevoContacto;
@@ -36,25 +37,23 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction FT = FM.beginTransaction();
 
         Fragment fragment = new FragmentContactos(datos);
-        FT.add(R.id.fragment_Container_Contactos,fragment);
+        FT.replace(R.id.fragment_Container_Contactos,fragment);
         FT.commit();
 
-        FAB_NuevoContacto = findViewById(R.id.FAB_NuevoContacto);
+    }
 
-        FAB_NuevoContacto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onFABClick() {
 
-                FragmentManager FM  = getSupportFragmentManager();
-                FragmentTransaction FT = FM.beginTransaction();
+        FragmentManager FM  = getSupportFragmentManager();
+        FragmentTransaction FT = FM.beginTransaction();
 
-                Fragment fragmentContactoNuevo = new FragmetNuevoContacto();
-                FT.replace(R.id.fragment_Container_Contactos,fragmentContactoNuevo);
-                FT.addToBackStack(null);
-                FT.commit();
+        Fragment fragmentNuevoContacto = new FragmetNuevoContacto();
+        FT.replace(R.id.fragment_Container_Contactos,fragmentNuevoContacto);
+        FT.addToBackStack(null);
+        FT.commit();
 
-            }
-        });
+        //Toast.makeText(getApplicationContext(),"Click en FAB desde Actitity",Toast.LENGTH_SHORT).show();
 
     }
 }

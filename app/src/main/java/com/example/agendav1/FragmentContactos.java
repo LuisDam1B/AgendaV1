@@ -1,5 +1,7 @@
 package com.example.agendav1;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,9 @@ public class FragmentContactos extends Fragment {
     ArrayList<Persona> datos;
     Adaptador adaptador;
     FloatingActionButton FAB_NuevoContacto;
+    OnFABClick onFAB_Activar;
+    Activity actividad;
+    View rootView;
 
     public FragmentContactos(ArrayList<Persona> datos) {
 
@@ -33,7 +38,7 @@ public class FragmentContactos extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_contactos,container,false);
+        rootView = inflater.inflate(R.layout.fragment_contactos,container,false);
 
         adaptador = new Adaptador(datos,getActivity());
 
@@ -47,15 +52,26 @@ public class FragmentContactos extends Fragment {
         FAB_NuevoContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"PRUEBA CLICK FAB",Toast.LENGTH_SHORT).show();
 
-                FragmentManager FM = getSu
-                FragmentTransaction FT = FM.beginTransaction();
+                onFAB_Activar.onFABClick();
+                //Toast.makeText(getContext(),"PRUEBA CLICK FAB",Toast.LENGTH_SHORT).show();
+
 
             }
         });
 
 
         return rootView;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (context instanceof Activity){
+            actividad = (Activity) context;
+            onFAB_Activar = (OnFABClick) actividad;
+
+        }
     }
 }
