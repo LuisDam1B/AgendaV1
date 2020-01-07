@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Adaptador extends RecyclerView.Adapter implements View.OnClickListener {
+public class  Adaptador extends RecyclerView.Adapter implements View.OnClickListener {
 
     ArrayList<Persona> datos;
     View.OnClickListener listenerClick;
@@ -46,6 +46,12 @@ public class Adaptador extends RecyclerView.Adapter implements View.OnClickListe
     @Override
     public int getItemCount() {
         return datos.size();
+    }
+
+    public void setListenerClick(View.OnClickListener listenerClick){
+        if (listenerClick != null){
+            this.listenerClick = listenerClick;
+        }
     }
 
     @Override

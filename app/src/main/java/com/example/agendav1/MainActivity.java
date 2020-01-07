@@ -1,27 +1,37 @@
 package com.example.agendav1;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements OnFABClick{
 
     final ArrayList<Persona> datos = new ArrayList<>();
-    FloatingActionButton FAB_NuevoContacto;
+
+    DrawerLayout mDrawerLaout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        mDrawerLaout = findViewById(R.id.drawler_layout);
+
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         datos.add(new Persona("Adrian","Gonzalvez Jordan",665200454,"adriangonzalves@gamil.com"));
         datos.add(new Persona("Alberto","Garcia Belenger",665230454,"albertogarcia@gamil.com"));
@@ -56,4 +66,6 @@ public class MainActivity extends AppCompatActivity implements OnFABClick{
         //Toast.makeText(getApplicationContext(),"Click en FAB desde Actitity",Toast.LENGTH_SHORT).show();
 
     }
+
+
 }

@@ -42,10 +42,19 @@ public class FragmentContactos extends Fragment {
 
         adaptador = new Adaptador(datos,getActivity());
 
+
         recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView.setAdapter(adaptador);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+
+        adaptador.setListenerClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pos = recyclerView.getChildAdapterPosition(v);
+                Toast.makeText(getContext(),datos.get(pos).getNombre(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         FAB_NuevoContacto = rootView.findViewById(R.id.FAB_NuevoContacto);

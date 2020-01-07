@@ -3,5 +3,5 @@ package com.example.agendav1;
 public interface PasarDatosEntreRecyclerListener {
 
 
-    public void pasarDatosEntreRecycler(Contacto c,int pos,)
+    public void pasarDatosEntreRecycler(Persona persona,int pos);
 }
