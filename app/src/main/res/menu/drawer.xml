@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Sub_Menu">
-        <menu>
-            <item
-                android:icon="@drawable/icons8_casa_24"
-                android:title="Familia"/>
-            <item
-                android:icon="@drawable/work_icon"
-                android:title="Trabajo"/>
-            <item
-                android:icon="@drawable/friends_icon"
-                android:title="amigos"/>
-            <item
-                android:icon="@drawable/internet_world_275"
-                android:title="Todos"/>
-        </menu>
-    </item>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_familia"
+            android:checked="true"
+            android:icon="@drawable/icons8_casa_24"
+            android:title="Familia"/>
+        <item
+            android:id="@+id/navigation_item_trabajo"
+            android:icon="@drawable/work_icon"
+            android:title="Trabajo"/>
+        <item
+            android:id="@+id/navigation_item_amigos"
+            android:icon="@drawable/friends_icon"
+            android:title="Amigos"/>
+        <item
+            android:id="@+id/navigation_item_todos"
+            android:icon="@drawable/internet_world_275"
+            android:title="Todos"/>
+
+    </group>
+
 </menu>

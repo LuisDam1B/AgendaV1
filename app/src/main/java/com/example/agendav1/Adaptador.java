@@ -1,6 +1,7 @@
 package com.example.agendav1;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,6 +91,7 @@ class Holder extends RecyclerView.ViewHolder implements View.OnClickListener
         apellidos.setText(persona.getApellidos());
         telefono.setText(String.valueOf(persona.getTelefono()));
         email.setText(persona.getEmail());
+        //imagenPerfil.setImageBitmap((Bitmap) persona.getForoPerfil());
     }
 
 
